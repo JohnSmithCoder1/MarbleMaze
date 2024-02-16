@@ -14,6 +14,7 @@
 		4B031CD62B7EDEA900324A48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CD42B7EDEA900324A48 /* Main.storyboard */; };
 		4B031CD82B7EDEA900324A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CD72B7EDEA900324A48 /* Assets.xcassets */; };
 		4B031CDB2B7EDEA900324A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CD92B7EDEA900324A48 /* LaunchScreen.storyboard */; };
+		4B031CE22B7EE24400324A48 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CE12B7EE24400324A48 /* level1.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4B031CD52B7EDEA900324A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B031CD72B7EDEA900324A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B031CDA2B7EDEA900324A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4B031CE12B7EE24400324A48 /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				4B031CD02B7EDEA900324A48 /* GameScene.swift */,
 				4B031CD22B7EDEA900324A48 /* GameViewController.swift */,
 				4B031CD42B7EDEA900324A48 /* Main.storyboard */,
+				4B031CE12B7EE24400324A48 /* level1.txt */,
 				4B031CD72B7EDEA900324A48 /* Assets.xcassets */,
 				4B031CD92B7EDEA900324A48 /* LaunchScreen.storyboard */,
 			);
@@ -126,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B031CE22B7EE24400324A48 /* level1.txt in Resources */,
 				4B031CD62B7EDEA900324A48 /* Main.storyboard in Resources */,
 				4B031CCD2B7EDEA900324A48 /* GameScene.sks in Resources */,
 				4B031CD82B7EDEA900324A48 /* Assets.xcassets in Resources */,
