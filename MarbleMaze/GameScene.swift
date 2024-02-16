@@ -17,7 +17,7 @@ enum CollisionTypes: UInt32 {
 
 class GameScene: SKScene {
     override func didMove(to view: SKView) {
-        
+        loadLevel()
     }
     
     func loadLevel() {
@@ -37,12 +37,48 @@ class GameScene: SKScene {
                 
                 if letter == "x" {
                     // load wall
+                    let node = SKSpriteNode(imageNamed: "block")
+                    node.position = position
+                    node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
+                    node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
+                    node.physicsBody?.isDynamic = false
                 } else if letter == "v" {
                     // load vortex
+                    let node = SKSpriteNode(imageNamed: "vortex")
+                    node.name = "vortex"
+                    node.run(SKAction.repeatForever(SKAction.rotate(byAngle: .pi, duration: 1)))
+                    node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+                    node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
+                    node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
+                    node.physicsBody?.collisionBitMask = 0
+                    node.physicsBody?.isDynamic = false
+                    node.position = position
+                    
+                    addChild(node)
                 } else if letter == "s" {
                     // load star
+                    let node = SKSpriteNode(imageNamed: "vortex")
+                    node.name = "vortex"
+                    node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+                    node.physicsBody?.isDynamic = false
+                    node.physicsBody?.categoryBitMask = CollisionTypes.star.rawValue
+                    node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
+                    node.physicsBody?.collisionBitMask = 0
+                    node.position = position
+                    
+                    addChild(node)
                 } else if letter == "f" {
                     // load finish point
+                    let node = SKSpriteNode(imageNamed: "finish")
+                    node.name = "finish"
+                    node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+                    node.physicsBody?.isDynamic = false
+                    node.physicsBody?.categoryBitMask = CollisionTypes.finish.rawValue
+                    node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
+                    node.physicsBody?.collisionBitMask = 0
+                    node.position = position
+                    
+                    addChild(node)
                 } else {
                     fatalError("Unknown level letter: \(letter)")
                 }
