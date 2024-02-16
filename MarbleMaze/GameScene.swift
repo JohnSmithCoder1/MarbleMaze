@@ -17,6 +17,13 @@ enum CollisionTypes: UInt32 {
 
 class GameScene: SKScene {
     override func didMove(to view: SKView) {
+        let background = SKSpriteNode(imageNamed: "background")
+        background.position = CGPoint(x: 512, y: 384)
+        background.blendMode = .replace
+        background.zPosition = -1
+        
+        addChild(background)
+        
         loadLevel()
     }
     
@@ -42,6 +49,8 @@ class GameScene: SKScene {
                     node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
                     node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
                     node.physicsBody?.isDynamic = false
+                    
+                    addChild(node)
                 } else if letter == "v" {
                     // load vortex
                     let node = SKSpriteNode(imageNamed: "vortex")
@@ -57,8 +66,8 @@ class GameScene: SKScene {
                     addChild(node)
                 } else if letter == "s" {
                     // load star
-                    let node = SKSpriteNode(imageNamed: "vortex")
-                    node.name = "vortex"
+                    let node = SKSpriteNode(imageNamed: "star")
+                    node.name = "star"
                     node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
                     node.physicsBody?.isDynamic = false
                     node.physicsBody?.categoryBitMask = CollisionTypes.star.rawValue
@@ -79,6 +88,8 @@ class GameScene: SKScene {
                     node.position = position
                     
                     addChild(node)
+                } else if letter == " " {
+                    // this is an empty space -- do nothing
                 } else {
                     fatalError("Unknown level letter: \(letter)")
                 }
