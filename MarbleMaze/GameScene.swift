@@ -5,6 +5,7 @@
 //  Created by J S on 2/15/24.
 //
 
+import CoreMotion
 import SpriteKit
 
 enum CollisionTypes: UInt32 {
@@ -17,6 +18,7 @@ enum CollisionTypes: UInt32 {
 
 class GameScene: SKScene {
     var player: SKSpriteNode!
+    var motionManager: CMMotionManager?
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background")
@@ -28,6 +30,17 @@ class GameScene: SKScene {
         
         loadLevel()
         createPlayer()
+        
+        physicsWorld.gravity = .zero
+        
+        motionManager = CMMotionManager()
+        motionManager?.startAccelerometerUpdates()
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        if let accelerometerData = motionManager?.accelerometerData {
+            physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * -50, dy: accelerometerData.acceleration.x * 50)
+        }
     }
     
     func loadLevel() {
@@ -103,6 +116,7 @@ class GameScene: SKScene {
     func createPlayer() {
         player = SKSpriteNode(imageNamed: "player")
         player.position = CGPoint(x: 96, y: 672)
+        player.zPosition = 1
         
         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 2)
         player.physicsBody?.allowsRotation = false
