@@ -51,48 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.zPosition = -1
         addChild(background)
         
-        levelLabel = SKLabelNode(fontNamed: "Georgia")
-        levelLabel.text = "Level: 1"
-        levelLabel.fontColor = pink
-        levelLabel.horizontalAlignmentMode = .left
-        levelLabel.position = CGPoint(x: 16, y: 16)
-        levelLabel.zPosition = 2
-        addChild(levelLabel)
-        
-        scoreLabel = SKLabelNode(fontNamed: "Georgia")
-        scoreLabel.text = "Score: 0"
-        scoreLabel.fontColor = pink
-        scoreLabel.horizontalAlignmentMode = .left
-        scoreLabel.position = CGPoint(x: 192, y: 16)
-        scoreLabel.zPosition = 2
-        addChild(scoreLabel)
-        
-        restartLabel = SKLabelNode(fontNamed: "Georgia")
-        restartLabel.name = "restart"
-        restartLabel.text = "Restart"
-        restartLabel.fontColor = pink
-        restartLabel.horizontalAlignmentMode = .left
-        restartLabel.position = CGPoint(x: 820, y: 16)
-        restartLabel.zPosition = 2
-        addChild(restartLabel)
-        
-        insideLabel = SKLabelNode(fontNamed: "Georgia")
-        insideLabel.name = "inside"
-        insideLabel.text = "Inside"
-        insideLabel.fontColor = pink
-        insideLabel.horizontalAlignmentMode = .left
-        insideLabel.position = CGPoint(x: 16, y: 720)
-        insideLabel.zPosition = 2
-        addChild(insideLabel)
-        
-        outsideLabel = SKLabelNode(fontNamed: "Georgia")
-        outsideLabel.name = "outside"
-        outsideLabel.text = "Outside"
-        outsideLabel.fontColor = pink
-        outsideLabel.horizontalAlignmentMode = .left
-        outsideLabel.position = CGPoint(x: 890, y: 720)
-        outsideLabel.zPosition = 2
-        addChild(outsideLabel)
+        createLabels()
         
         loadLevel(fileName: "level1")
         
@@ -161,6 +120,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         score = 0
         level = 1
         loadLevel(fileName: "level1")
+        removeLabels()
+        createLabels()
     }
     
     func loadLevel(fileName: String) {
@@ -265,6 +226,75 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             level += 1
             loadLevel(fileName: "level\(level)")
         }
+    }
+    
+    func removeLabels() {
+        if let node = self.childNode(withName: "levelLabel") as? SKLabelNode {
+            node.removeFromParent()
+        }
+        
+        if let node = self.childNode(withName: "scoreLabel") as? SKLabelNode {
+            node.removeFromParent()
+        }
+        
+        if let node = self.childNode(withName: "restart") as? SKLabelNode {
+            node.removeFromParent()
+        }
+        
+        if let node = self.childNode(withName: "inside") as? SKLabelNode {
+            node.removeFromParent()
+        }
+        
+        if let node = self.childNode(withName: "outside") as? SKLabelNode {
+            node.removeFromParent()
+        }
+    }
+    
+    func createLabels() {
+        levelLabel = SKLabelNode(fontNamed: "Georgia")
+        levelLabel.name = "levelLabel"
+        levelLabel.text = "Level: 1"
+        levelLabel.fontColor = isInsideMode ? pink : .white
+        levelLabel.horizontalAlignmentMode = .left
+        levelLabel.position = CGPoint(x: 16, y: 16)
+        levelLabel.zPosition = 2
+        addChild(levelLabel)
+        
+        scoreLabel = SKLabelNode(fontNamed: "Georgia")
+        scoreLabel.name = "scoreLabel"
+        scoreLabel.text = "Score: 0"
+        scoreLabel.fontColor = isInsideMode ? pink : .white
+        scoreLabel.horizontalAlignmentMode = .left
+        scoreLabel.position = CGPoint(x: 192, y: 16)
+        scoreLabel.zPosition = 2
+        addChild(scoreLabel)
+        
+        restartLabel = SKLabelNode(fontNamed: "Georgia")
+        restartLabel.name = "restart"
+        restartLabel.text = "Restart"
+        restartLabel.fontColor = isInsideMode ? pink : .white
+        restartLabel.horizontalAlignmentMode = .left
+        restartLabel.position = CGPoint(x: 820, y: 16)
+        restartLabel.zPosition = 2
+        addChild(restartLabel)
+        
+        insideLabel = SKLabelNode(fontNamed: "Georgia")
+        insideLabel.name = "inside"
+        insideLabel.text = "Inside"
+        insideLabel.fontColor = isInsideMode ? pink : .white
+        insideLabel.horizontalAlignmentMode = .left
+        insideLabel.position = CGPoint(x: 16, y: 720)
+        insideLabel.zPosition = 2
+        addChild(insideLabel)
+        
+        outsideLabel = SKLabelNode(fontNamed: "Georgia")
+        outsideLabel.name = "outside"
+        outsideLabel.text = "Outside"
+        outsideLabel.fontColor = isInsideMode ? pink : .white
+        outsideLabel.horizontalAlignmentMode = .left
+        outsideLabel.position = CGPoint(x: 890, y: 720)
+        outsideLabel.zPosition = 2
+        addChild(outsideLabel)
     }
     
     func loadWall(_ position: CGPoint) {
