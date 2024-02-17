@@ -236,7 +236,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func playerCollided(with node: SKNode) {
         if node.name == "vortex" {
-            playSound("bark")
+            if isInsideMode {
+                playSound("bark")
+            } else {
+                playSound("splash")
+            }
             player.physicsBody?.isDynamic = false
             isGameOver = true
             score -= 1
@@ -284,15 +288,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func loadVortex(_ position: CGPoint) {
-        let node = SKSpriteNode(imageNamed: "dog")
-        node.name = "vortex"
-        node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
-        node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
-        node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
-        node.physicsBody?.collisionBitMask = 0
-        node.physicsBody?.isDynamic = false
-        node.position = position
-        addChild(node)
+        if isInsideMode {
+            let node = SKSpriteNode(imageNamed: "dog")
+            node.name = "vortex"
+            node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+            node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
+            node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
+            node.physicsBody?.collisionBitMask = 0
+            node.physicsBody?.isDynamic = false
+            node.position = position
+            addChild(node)
+        } else {
+            let node = SKSpriteNode(imageNamed: "water")
+            node.name = "vortex"
+            node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+            node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
+            node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
+            node.physicsBody?.collisionBitMask = 0
+            node.physicsBody?.isDynamic = false
+            node.position = position
+            addChild(node)
+        }
     }
     
     func loadStar(_ position: CGPoint) {
