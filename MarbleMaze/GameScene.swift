@@ -22,6 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var isGameOver = false
     var motionManager: CMMotionManager?
     var player: SKSpriteNode!
+    let pink = UIColor(red: 252/255, green: 0/255, blue: 150/255, alpha: 1)
     
     var levelLabel: SKLabelNode!
     var level = 1 {
@@ -42,29 +43,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         
-        let background = SKSpriteNode(imageNamed: "grass")
+        let background = SKSpriteNode(imageNamed: "purple-carpet")
         background.position = CGPoint(x: 512, y: 384)
         background.blendMode = .replace
         background.zPosition = -1
         addChild(background)
         
-        levelLabel = SKLabelNode(fontNamed: "Chalkduster")
+        levelLabel = SKLabelNode(fontNamed: "Georgia")
         levelLabel.text = "Level: 1"
+        levelLabel.fontColor = pink
         levelLabel.horizontalAlignmentMode = .left
         levelLabel.position = CGPoint(x: 16, y: 16)
         levelLabel.zPosition = 2
         addChild(levelLabel)
         
-        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel = SKLabelNode(fontNamed: "Georgia")
         scoreLabel.text = "Score: 0"
+        scoreLabel.fontColor = pink
         scoreLabel.horizontalAlignmentMode = .left
         scoreLabel.position = CGPoint(x: 192, y: 16)
         scoreLabel.zPosition = 2
         addChild(scoreLabel)
         
-        restartLabel = SKLabelNode(fontNamed: "Chalkduster")
+        restartLabel = SKLabelNode(fontNamed: "Georgia")
         restartLabel.name = "restart"
         restartLabel.text = "Restart"
+        restartLabel.fontColor = pink
         restartLabel.horizontalAlignmentMode = .left
         restartLabel.position = CGPoint(x: 820, y: 16)
         restartLabel.zPosition = 2
@@ -87,6 +91,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Check if the text button was touched
         if let touchedNode = self.atPoint(touchLocation) as? SKLabelNode, touchedNode.name == "restart" {
             score = 0
+            level = 1
             loadLevel(fileName: "level1")
         }
     }
@@ -95,7 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard isGameOver == false else { return }
         
         if let accelerometerData = motionManager?.accelerometerData {
-            physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * -15, dy: accelerometerData.acceleration.x * 15)
+            physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * -8, dy: accelerometerData.acceleration.x * 8)
         }
     }
     
@@ -173,7 +178,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func playerCollided(with node: SKNode) {
         if node.name == "vortex" {
-            playSound("vortex")
+            playSound("bark")
             player.physicsBody?.isDynamic = false
             isGameOver = true
             score -= 1
@@ -201,7 +206,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func loadWall(_ position: CGPoint) {
-        let node = SKSpriteNode(imageNamed: "block")
+        let node = SKSpriteNode(imageNamed: "tan-wall")
         node.position = position
         node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
         node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
@@ -210,9 +215,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func loadVortex(_ position: CGPoint) {
-        let node = SKSpriteNode(imageNamed: "vortex")
+        let node = SKSpriteNode(imageNamed: "dog")
         node.name = "vortex"
-        node.run(SKAction.repeatForever(SKAction.rotate(byAngle: .pi, duration: 1)))
         node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
         node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
         node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue

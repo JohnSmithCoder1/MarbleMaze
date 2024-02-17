@@ -26,6 +26,7 @@
 		4BC217882B81130300D8C374 /* meow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BC217872B81130300D8C374 /* meow.wav */; };
 		4BC2178A2B81159A00D8C374 /* wall.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BC217892B81159A00D8C374 /* wall.wav */; };
 		4BC217902B811ECD00D8C374 /* purr.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2178F2B811ECD00D8C374 /* purr.wav */; };
+		4BC217922B8131A400D8C374 /* bark.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BC217912B8131A400D8C374 /* bark.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		4BC217872B81130300D8C374 /* meow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = meow.wav; sourceTree = "<group>"; };
 		4BC217892B81159A00D8C374 /* wall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wall.wav; sourceTree = "<group>"; };
 		4BC2178F2B811ECD00D8C374 /* purr.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = purr.wav; sourceTree = "<group>"; };
+		4BC217912B8131A400D8C374 /* bark.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bark.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,12 +112,13 @@
 		4B4099BB2B8073EC0005E608 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				4BC217892B81159A00D8C374 /* wall.wav */,
+				4BC217912B8131A400D8C374 /* bark.wav */,
+				4BC217872B81130300D8C374 /* meow.wav */,
+				4B4099B92B8073DD0005E608 /* finish.wav */,
+				4BC2178F2B811ECD00D8C374 /* purr.wav */,
 				4B4099B72B8073C40005E608 /* star.wav */,
 				4B4099BC2B8075B90005E608 /* vortex.wav */,
-				4B4099B92B8073DD0005E608 /* finish.wav */,
-				4BC217872B81130300D8C374 /* meow.wav */,
-				4BC2178F2B811ECD00D8C374 /* purr.wav */,
+				4BC217892B81159A00D8C374 /* wall.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BC2178A2B81159A00D8C374 /* wall.wav in Resources */,
+				4BC217922B8131A400D8C374 /* bark.wav in Resources */,
 				4BC217822B81127A00D8C374 /* level4.txt in Resources */,
 				4B4099B82B8073C40005E608 /* star.wav in Resources */,
 				4B4099BD2B8075B90005E608 /* vortex.wav in Resources */,
