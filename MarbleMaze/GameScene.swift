@@ -23,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var motionManager: CMMotionManager?
     var player: SKSpriteNode!
     let pink = UIColor(red: 252/255, green: 0/255, blue: 150/255, alpha: 1)
+    var isInsideMode = true
     
     var levelLabel: SKLabelNode!
     var level = 1 {
@@ -39,11 +40,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     var restartLabel: SKLabelNode!
+    var outsideLabel: SKLabelNode!
+    var insideLabel: SKLabelNode!
     
     override func didMove(to view: SKView) {
-        
-        
         let background = SKSpriteNode(imageNamed: "purple-carpet")
+        background.name = "background"
         background.position = CGPoint(x: 512, y: 384)
         background.blendMode = .replace
         background.zPosition = -1
@@ -74,6 +76,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         restartLabel.zPosition = 2
         addChild(restartLabel)
         
+        insideLabel = SKLabelNode(fontNamed: "Georgia")
+        insideLabel.name = "inside"
+        insideLabel.text = "Inside"
+        insideLabel.fontColor = pink
+        insideLabel.horizontalAlignmentMode = .left
+        insideLabel.position = CGPoint(x: 16, y: 720)
+        insideLabel.zPosition = 2
+        addChild(insideLabel)
+        
+        outsideLabel = SKLabelNode(fontNamed: "Georgia")
+        outsideLabel.name = "outside"
+        outsideLabel.text = "Outside"
+        outsideLabel.fontColor = pink
+        outsideLabel.horizontalAlignmentMode = .left
+        outsideLabel.position = CGPoint(x: 890, y: 720)
+        outsideLabel.zPosition = 2
+        addChild(outsideLabel)
+        
         loadLevel(fileName: "level1")
         
         physicsWorld.gravity = .zero
@@ -88,11 +108,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard let touch = touches.first else { return }
         let touchLocation = touch.location(in: self)
         
-        // Check if the text button was touched
         if let touchedNode = self.atPoint(touchLocation) as? SKLabelNode, touchedNode.name == "restart" {
             score = 0
             level = 1
             loadLevel(fileName: "level1")
+        }
+        
+        if let touchedNode = self.atPoint(touchLocation) as? SKLabelNode, touchedNode.name == "outside" {
+            isInsideMode = false
+            changeMode()
+        }
+        
+        if let touchedNode = self.atPoint(touchLocation) as? SKLabelNode, touchedNode.name == "inside" {
+            isInsideMode = true
+            changeMode()
         }
     }
     
@@ -102,6 +131,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let accelerometerData = motionManager?.accelerometerData {
             physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * -8, dy: accelerometerData.acceleration.x * 8)
         }
+    }
+    
+    func changeMode() {
+        if let background = self.childNode(withName: "background") as? SKSpriteNode {
+            background.removeFromParent()
+        }
+        
+        if isInsideMode {
+            let background = SKSpriteNode(imageNamed: "purple-carpet")
+            background.name = "background"
+            background.position = CGPoint(x: 512, y: 384)
+            background.blendMode = .replace
+            background.zPosition = -1
+            addChild(background)
+        } else {
+            let background = SKSpriteNode(imageNamed: "grass")
+            background.name = "background"
+            background.position = CGPoint(x: 512, y: 384)
+            background.blendMode = .replace
+            background.zPosition = -1
+            addChild(background)
+        }
+        
+        self.enumerateChildNodes(withName: "wall") { (node, stop) in
+            node.removeFromParent()
+        }
+        
+        score = 0
+        level = 1
+        loadLevel(fileName: "level1")
     }
     
     func loadLevel(fileName: String) {
@@ -155,7 +214,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.zPosition = 1
         
         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 2)
-//        player.physicsBody?.allowsRotation = false
         player.physicsBody?.linearDamping = 0.5
         
         player.physicsBody?.categoryBitMask = CollisionTypes.player.rawValue
@@ -206,12 +264,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func loadWall(_ position: CGPoint) {
-        let node = SKSpriteNode(imageNamed: "tan-wall")
-        node.position = position
-        node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
-        node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
-        node.physicsBody?.isDynamic = false
-        addChild(node)
+        if isInsideMode {
+            let node = SKSpriteNode(imageNamed: "tan-wall")
+            node.name = "wall"
+            node.position = position
+            node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
+            node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
+            node.physicsBody?.isDynamic = false
+            addChild(node)
+        } else {
+            let node = SKSpriteNode(imageNamed: "fence")
+            node.name = "wall"
+            node.position = position
+            node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
+            node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
+            node.physicsBody?.isDynamic = false
+            addChild(node)
+        }
     }
     
     func loadVortex(_ position: CGPoint) {
