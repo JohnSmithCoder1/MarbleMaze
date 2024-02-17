@@ -5,6 +5,7 @@
 //  Created by J S on 2/15/24.
 //
 
+import AVFoundation
 import CoreMotion
 import SpriteKit
 
@@ -17,9 +18,10 @@ enum CollisionTypes: UInt32 {
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var player: SKSpriteNode!
-    var motionManager: CMMotionManager?
+    var audioPlayer: AVAudioPlayer?
     var isGameOver = false
+    var motionManager: CMMotionManager?
+    var player: SKSpriteNode!
     
     var levelLabel: SKLabelNode!
     var level = 1 {
@@ -147,6 +149,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func playerCollided(with node: SKNode) {
         if node.name == "vortex" {
+            playSound("shuffleCards")
             player.physicsBody?.isDynamic = false
             isGameOver = true
             score -= 1
@@ -161,9 +164,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self?.isGameOver = false
             }
         } else if node.name == "star" {
+            playSound("cardMatchSound")
             node.removeFromParent()
             score += 1
         } else if node.name == "finish" {
+            playSound("victorySound")
             player.physicsBody?.isDynamic = false
             isGameOver = true
             level += 1
@@ -216,4 +221,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.position = position
         addChild(node)
     }
+    
+    func playSound(_ soundFile: String) {
+        guard let path = Bundle.main.url(forResource: soundFile, withExtension: "wav") else { return }
+        do {
+          audioPlayer = try AVAudioPlayer(contentsOf: path)
+          guard let audioPlayer = audioPlayer else { return }
+          audioPlayer.prepareToPlay()
+          audioPlayer.play()
+        } catch let error as NSError {
+          print("error: \(error.localizedDescription)")
+        }
+  }
 }
