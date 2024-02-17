@@ -274,7 +274,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         restartLabel.text = "Restart"
         restartLabel.fontColor = isInsideMode ? pink : .white
         restartLabel.horizontalAlignmentMode = .left
-        restartLabel.position = CGPoint(x: 820, y: 16)
+        restartLabel.position = CGPoint(x: 900, y: 16)
         restartLabel.zPosition = 2
         addChild(restartLabel)
         
