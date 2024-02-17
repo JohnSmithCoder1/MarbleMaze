@@ -37,7 +37,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    var restartLabel: SKLabelNode!
+    
     override func didMove(to view: SKView) {
+        
+        
         let background = SKSpriteNode(imageNamed: "background")
         background.position = CGPoint(x: 512, y: 384)
         background.blendMode = .replace
@@ -58,13 +62,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.zPosition = 2
         addChild(scoreLabel)
         
+        restartLabel = SKLabelNode(fontNamed: "Chalkduster")
+        restartLabel.name = "restart"
+        restartLabel.text = "Restart"
+        restartLabel.horizontalAlignmentMode = .left
+        restartLabel.position = CGPoint(x: 820, y: 16)
+        restartLabel.zPosition = 2
+        addChild(restartLabel)
+        
         loadLevel(fileName: "level1")
         
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
         
+        view.scene?.scaleMode = .aspectFit
         motionManager = CMMotionManager()
         motionManager?.startAccelerometerUpdates()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let touchLocation = touch.location(in: self)
+        
+        // Check if the text button was touched
+        if let touchedNode = self.atPoint(touchLocation) as? SKLabelNode, touchedNode.name == "restart" {
+            score = 0
+            loadLevel(fileName: "level1")
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
