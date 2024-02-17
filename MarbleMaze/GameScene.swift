@@ -114,7 +114,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             child.removeFromParent()
         }
         
-        score = 0
         physicsWorld.gravity = .zero
         isGameOver = false
     }
