@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B01F02F2B8063410015E6CE /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F02A2B8063410015E6CE /* level1.txt */; };
-		4B01F0302B8063410015E6CE /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F02B2B8063410015E6CE /* level2.txt */; };
-		4B01F0372B8064490015E6CE /* level3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F0362B8064490015E6CE /* level3.txt */; };
-		4B01F03C2B80655E0015E6CE /* level5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F03A2B80655D0015E6CE /* level5.txt */; };
-		4B01F03F2B8065EB0015E6CE /* level4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F03E2B8065EB0015E6CE /* level4.txt */; };
 		4B031CCB2B7EDEA900324A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B031CCA2B7EDEA900324A48 /* AppDelegate.swift */; };
 		4B031CCD2B7EDEA900324A48 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CCC2B7EDEA900324A48 /* GameScene.sks */; };
 		4B031CD12B7EDEA900324A48 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B031CD02B7EDEA900324A48 /* GameScene.swift */; };
@@ -22,14 +17,15 @@
 		4B4099B82B8073C40005E608 /* cardMatchSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B4099B72B8073C40005E608 /* cardMatchSound.wav */; };
 		4B4099BA2B8073DD0005E608 /* victorySound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B4099B92B8073DD0005E608 /* victorySound.wav */; };
 		4B4099BD2B8075B90005E608 /* shuffleCards.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B4099BC2B8075B90005E608 /* shuffleCards.wav */; };
+		4BC217812B81127A00D8C374 /* level5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2177B2B81127A00D8C374 /* level5.txt */; };
+		4BC217822B81127A00D8C374 /* level4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2177C2B81127A00D8C374 /* level4.txt */; };
+		4BC217832B81127A00D8C374 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2177D2B81127A00D8C374 /* level1.txt */; };
+		4BC217842B81127A00D8C374 /* level3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2177E2B81127A00D8C374 /* level3.txt */; };
+		4BC217852B81127A00D8C374 /* level6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2177F2B81127A00D8C374 /* level6.txt */; };
+		4BC217862B81127A00D8C374 /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC217802B81127A00D8C374 /* level2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4B01F02A2B8063410015E6CE /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
-		4B01F02B2B8063410015E6CE /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
-		4B01F0362B8064490015E6CE /* level3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level3.txt; sourceTree = "<group>"; };
-		4B01F03A2B80655D0015E6CE /* level5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level5.txt; sourceTree = "<group>"; };
-		4B01F03E2B8065EB0015E6CE /* level4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level4.txt; sourceTree = "<group>"; };
 		4B031CC72B7EDEA900324A48 /* MarbleMaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarbleMaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B031CCA2B7EDEA900324A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B031CCC2B7EDEA900324A48 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -41,6 +37,12 @@
 		4B4099B72B8073C40005E608 /* cardMatchSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardMatchSound.wav; sourceTree = "<group>"; };
 		4B4099B92B8073DD0005E608 /* victorySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = victorySound.wav; sourceTree = "<group>"; };
 		4B4099BC2B8075B90005E608 /* shuffleCards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shuffleCards.wav; sourceTree = "<group>"; };
+		4BC2177B2B81127A00D8C374 /* level5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level5.txt; sourceTree = "<group>"; };
+		4BC2177C2B81127A00D8C374 /* level4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level4.txt; sourceTree = "<group>"; };
+		4BC2177D2B81127A00D8C374 /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
+		4BC2177E2B81127A00D8C374 /* level3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level3.txt; sourceTree = "<group>"; };
+		4BC2177F2B81127A00D8C374 /* level6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level6.txt; sourceTree = "<group>"; };
+		4BC217802B81127A00D8C374 /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +59,12 @@
 		4B01F01B2B803DE40015E6CE /* levels */ = {
 			isa = PBXGroup;
 			children = (
-				4B01F02A2B8063410015E6CE /* level1.txt */,
-				4B01F02B2B8063410015E6CE /* level2.txt */,
-				4B01F0362B8064490015E6CE /* level3.txt */,
-				4B01F03E2B8065EB0015E6CE /* level4.txt */,
-				4B01F03A2B80655D0015E6CE /* level5.txt */,
+				4BC2177D2B81127A00D8C374 /* level1.txt */,
+				4BC217802B81127A00D8C374 /* level2.txt */,
+				4BC2177E2B81127A00D8C374 /* level3.txt */,
+				4BC2177C2B81127A00D8C374 /* level4.txt */,
+				4BC2177B2B81127A00D8C374 /* level5.txt */,
+				4BC2177F2B81127A00D8C374 /* level6.txt */,
 			);
 			path = levels;
 			sourceTree = "<group>";
@@ -166,18 +169,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BC217822B81127A00D8C374 /* level4.txt in Resources */,
 				4B4099B82B8073C40005E608 /* cardMatchSound.wav in Resources */,
-				4B01F03F2B8065EB0015E6CE /* level4.txt in Resources */,
 				4B4099BD2B8075B90005E608 /* shuffleCards.wav in Resources */,
 				4B4099BA2B8073DD0005E608 /* victorySound.wav in Resources */,
-				4B01F02F2B8063410015E6CE /* level1.txt in Resources */,
 				4B031CD62B7EDEA900324A48 /* Main.storyboard in Resources */,
-				4B01F0372B8064490015E6CE /* level3.txt in Resources */,
-				4B01F0302B8063410015E6CE /* level2.txt in Resources */,
+				4BC217832B81127A00D8C374 /* level1.txt in Resources */,
 				4B031CCD2B7EDEA900324A48 /* GameScene.sks in Resources */,
-				4B01F03C2B80655E0015E6CE /* level5.txt in Resources */,
+				4BC217862B81127A00D8C374 /* level2.txt in Resources */,
+				4BC217812B81127A00D8C374 /* level5.txt in Resources */,
 				4B031CD82B7EDEA900324A48 /* Assets.xcassets in Resources */,
 				4B031CDB2B7EDEA900324A48 /* LaunchScreen.storyboard in Resources */,
+				4BC217852B81127A00D8C374 /* level6.txt in Resources */,
+				4BC217842B81127A00D8C374 /* level3.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +354,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,7 +383,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
