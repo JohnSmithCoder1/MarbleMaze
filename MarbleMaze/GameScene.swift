@@ -145,12 +145,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func createPlayer() {
-        player = SKSpriteNode(imageNamed: "player")
+        player = SKSpriteNode(imageNamed: "cat-marble")
         player.position = CGPoint(x: 96, y: 672)
         player.zPosition = 1
         
         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 2)
-        player.physicsBody?.allowsRotation = false
+//        player.physicsBody?.allowsRotation = false
         player.physicsBody?.linearDamping = 0.5
         
         player.physicsBody?.categoryBitMask = CollisionTypes.player.rawValue
@@ -188,7 +188,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self?.isGameOver = false
             }
         } else if node.name == "star" {
-            playSound("star")
+            playSound("meow")
             node.removeFromParent()
             score += 1
         } else if node.name == "finish" {
