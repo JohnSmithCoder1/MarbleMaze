@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B01F01A2B803D780015E6CE /* level3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F0192B803D780015E6CE /* level3.txt */; };
-		4B01F0252B805F240015E6CE /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F0242B805F240015E6CE /* level2.txt */; };
-		4B01F0292B805FD30015E6CE /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F0282B805FD30015E6CE /* level1.txt */; };
+		4B01F02F2B8063410015E6CE /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F02A2B8063410015E6CE /* level1.txt */; };
+		4B01F0302B8063410015E6CE /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F02B2B8063410015E6CE /* level2.txt */; };
+		4B01F0372B8064490015E6CE /* level3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F0362B8064490015E6CE /* level3.txt */; };
+		4B01F03C2B80655E0015E6CE /* level5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F03A2B80655D0015E6CE /* level5.txt */; };
+		4B01F03F2B8065EB0015E6CE /* level4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B01F03E2B8065EB0015E6CE /* level4.txt */; };
 		4B031CCB2B7EDEA900324A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B031CCA2B7EDEA900324A48 /* AppDelegate.swift */; };
 		4B031CCD2B7EDEA900324A48 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CCC2B7EDEA900324A48 /* GameScene.sks */; };
 		4B031CD12B7EDEA900324A48 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B031CD02B7EDEA900324A48 /* GameScene.swift */; };
@@ -17,13 +19,14 @@
 		4B031CD62B7EDEA900324A48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CD42B7EDEA900324A48 /* Main.storyboard */; };
 		4B031CD82B7EDEA900324A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CD72B7EDEA900324A48 /* Assets.xcassets */; };
 		4B031CDB2B7EDEA900324A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CD92B7EDEA900324A48 /* LaunchScreen.storyboard */; };
-		4B031CE22B7EE24400324A48 /* level4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CE12B7EE24400324A48 /* level4.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4B01F0192B803D780015E6CE /* level3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level3.txt; sourceTree = "<group>"; };
-		4B01F0242B805F240015E6CE /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = level2.txt; path = "../../../../../../Library/Mobile Documents/com~apple~TextEdit/Documents/level2.txt"; sourceTree = "<group>"; };
-		4B01F0282B805FD30015E6CE /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
+		4B01F02A2B8063410015E6CE /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
+		4B01F02B2B8063410015E6CE /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
+		4B01F0362B8064490015E6CE /* level3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level3.txt; sourceTree = "<group>"; };
+		4B01F03A2B80655D0015E6CE /* level5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level5.txt; sourceTree = "<group>"; };
+		4B01F03E2B8065EB0015E6CE /* level4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level4.txt; sourceTree = "<group>"; };
 		4B031CC72B7EDEA900324A48 /* MarbleMaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarbleMaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B031CCA2B7EDEA900324A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B031CCC2B7EDEA900324A48 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -32,7 +35,6 @@
 		4B031CD52B7EDEA900324A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B031CD72B7EDEA900324A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B031CDA2B7EDEA900324A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4B031CE12B7EE24400324A48 /* level4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level4.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,10 +51,11 @@
 		4B01F01B2B803DE40015E6CE /* levels */ = {
 			isa = PBXGroup;
 			children = (
-				4B01F0282B805FD30015E6CE /* level1.txt */,
-				4B01F0242B805F240015E6CE /* level2.txt */,
-				4B01F0192B803D780015E6CE /* level3.txt */,
-				4B031CE12B7EE24400324A48 /* level4.txt */,
+				4B01F02A2B8063410015E6CE /* level1.txt */,
+				4B01F02B2B8063410015E6CE /* level2.txt */,
+				4B01F0362B8064490015E6CE /* level3.txt */,
+				4B01F03E2B8065EB0015E6CE /* level4.txt */,
+				4B01F03A2B80655D0015E6CE /* level5.txt */,
 			);
 			path = levels;
 			sourceTree = "<group>";
@@ -146,14 +149,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B031CE22B7EE24400324A48 /* level4.txt in Resources */,
-				4B01F0292B805FD30015E6CE /* level1.txt in Resources */,
-				4B01F01A2B803D780015E6CE /* level3.txt in Resources */,
+				4B01F03F2B8065EB0015E6CE /* level4.txt in Resources */,
+				4B01F02F2B8063410015E6CE /* level1.txt in Resources */,
 				4B031CD62B7EDEA900324A48 /* Main.storyboard in Resources */,
+				4B01F0372B8064490015E6CE /* level3.txt in Resources */,
+				4B01F0302B8063410015E6CE /* level2.txt in Resources */,
 				4B031CCD2B7EDEA900324A48 /* GameScene.sks in Resources */,
+				4B01F03C2B80655E0015E6CE /* level5.txt in Resources */,
 				4B031CD82B7EDEA900324A48 /* Assets.xcassets in Resources */,
 				4B031CDB2B7EDEA900324A48 /* LaunchScreen.storyboard in Resources */,
-				4B01F0252B805F240015E6CE /* level2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
