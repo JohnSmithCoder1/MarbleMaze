@@ -173,7 +173,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func playerCollided(with node: SKNode) {
         if node.name == "vortex" {
-            playSound("shuffleCards")
+            playSound("vortex")
             player.physicsBody?.isDynamic = false
             isGameOver = true
             score -= 1
@@ -188,11 +188,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self?.isGameOver = false
             }
         } else if node.name == "star" {
-            playSound("cardMatchSound")
+            playSound("star")
             node.removeFromParent()
             score += 1
         } else if node.name == "finish" {
-            playSound("victorySound")
+            playSound("finish")
             player.physicsBody?.isDynamic = false
             isGameOver = true
             level += 1

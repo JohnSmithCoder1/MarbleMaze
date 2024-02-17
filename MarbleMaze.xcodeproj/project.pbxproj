@@ -14,15 +14,17 @@
 		4B031CD62B7EDEA900324A48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CD42B7EDEA900324A48 /* Main.storyboard */; };
 		4B031CD82B7EDEA900324A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CD72B7EDEA900324A48 /* Assets.xcassets */; };
 		4B031CDB2B7EDEA900324A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B031CD92B7EDEA900324A48 /* LaunchScreen.storyboard */; };
-		4B4099B82B8073C40005E608 /* cardMatchSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B4099B72B8073C40005E608 /* cardMatchSound.wav */; };
-		4B4099BA2B8073DD0005E608 /* victorySound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B4099B92B8073DD0005E608 /* victorySound.wav */; };
-		4B4099BD2B8075B90005E608 /* shuffleCards.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B4099BC2B8075B90005E608 /* shuffleCards.wav */; };
+		4B4099B82B8073C40005E608 /* star.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B4099B72B8073C40005E608 /* star.wav */; };
+		4B4099BA2B8073DD0005E608 /* finish.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B4099B92B8073DD0005E608 /* finish.wav */; };
+		4B4099BD2B8075B90005E608 /* vortex.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B4099BC2B8075B90005E608 /* vortex.wav */; };
 		4BC217812B81127A00D8C374 /* level5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2177B2B81127A00D8C374 /* level5.txt */; };
 		4BC217822B81127A00D8C374 /* level4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2177C2B81127A00D8C374 /* level4.txt */; };
 		4BC217832B81127A00D8C374 /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2177D2B81127A00D8C374 /* level1.txt */; };
 		4BC217842B81127A00D8C374 /* level3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2177E2B81127A00D8C374 /* level3.txt */; };
 		4BC217852B81127A00D8C374 /* level6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC2177F2B81127A00D8C374 /* level6.txt */; };
 		4BC217862B81127A00D8C374 /* level2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BC217802B81127A00D8C374 /* level2.txt */; };
+		4BC217882B81130300D8C374 /* meow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BC217872B81130300D8C374 /* meow.wav */; };
+		4BC2178A2B81159A00D8C374 /* wall.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4BC217892B81159A00D8C374 /* wall.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,15 +36,17 @@
 		4B031CD52B7EDEA900324A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B031CD72B7EDEA900324A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B031CDA2B7EDEA900324A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4B4099B72B8073C40005E608 /* cardMatchSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardMatchSound.wav; sourceTree = "<group>"; };
-		4B4099B92B8073DD0005E608 /* victorySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = victorySound.wav; sourceTree = "<group>"; };
-		4B4099BC2B8075B90005E608 /* shuffleCards.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shuffleCards.wav; sourceTree = "<group>"; };
+		4B4099B72B8073C40005E608 /* star.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = star.wav; sourceTree = "<group>"; };
+		4B4099B92B8073DD0005E608 /* finish.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finish.wav; sourceTree = "<group>"; };
+		4B4099BC2B8075B90005E608 /* vortex.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = vortex.wav; sourceTree = "<group>"; };
 		4BC2177B2B81127A00D8C374 /* level5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level5.txt; sourceTree = "<group>"; };
 		4BC2177C2B81127A00D8C374 /* level4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level4.txt; sourceTree = "<group>"; };
 		4BC2177D2B81127A00D8C374 /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
 		4BC2177E2B81127A00D8C374 /* level3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level3.txt; sourceTree = "<group>"; };
 		4BC2177F2B81127A00D8C374 /* level6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level6.txt; sourceTree = "<group>"; };
 		4BC217802B81127A00D8C374 /* level2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level2.txt; sourceTree = "<group>"; };
+		4BC217872B81130300D8C374 /* meow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = meow.wav; sourceTree = "<group>"; };
+		4BC217892B81159A00D8C374 /* wall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wall.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +108,11 @@
 		4B4099BB2B8073EC0005E608 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				4B4099B72B8073C40005E608 /* cardMatchSound.wav */,
-				4B4099BC2B8075B90005E608 /* shuffleCards.wav */,
-				4B4099B92B8073DD0005E608 /* victorySound.wav */,
+				4BC217892B81159A00D8C374 /* wall.wav */,
+				4B4099B72B8073C40005E608 /* star.wav */,
+				4B4099BC2B8075B90005E608 /* vortex.wav */,
+				4B4099B92B8073DD0005E608 /* finish.wav */,
+				4BC217872B81130300D8C374 /* meow.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -169,12 +175,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BC2178A2B81159A00D8C374 /* wall.wav in Resources */,
 				4BC217822B81127A00D8C374 /* level4.txt in Resources */,
-				4B4099B82B8073C40005E608 /* cardMatchSound.wav in Resources */,
-				4B4099BD2B8075B90005E608 /* shuffleCards.wav in Resources */,
-				4B4099BA2B8073DD0005E608 /* victorySound.wav in Resources */,
+				4B4099B82B8073C40005E608 /* star.wav in Resources */,
+				4B4099BD2B8075B90005E608 /* vortex.wav in Resources */,
+				4B4099BA2B8073DD0005E608 /* finish.wav in Resources */,
 				4B031CD62B7EDEA900324A48 /* Main.storyboard in Resources */,
 				4BC217832B81127A00D8C374 /* level1.txt in Resources */,
+				4BC217882B81130300D8C374 /* meow.wav in Resources */,
 				4B031CCD2B7EDEA900324A48 /* GameScene.sks in Resources */,
 				4BC217862B81127A00D8C374 /* level2.txt in Resources */,
 				4BC217812B81127A00D8C374 /* level5.txt in Resources */,
