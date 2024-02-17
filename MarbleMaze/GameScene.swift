@@ -42,7 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         
-        let background = SKSpriteNode(imageNamed: "background")
+        let background = SKSpriteNode(imageNamed: "grass")
         background.position = CGPoint(x: 512, y: 384)
         background.blendMode = .replace
         background.zPosition = -1
@@ -192,7 +192,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node.removeFromParent()
             score += 1
         } else if node.name == "finish" {
-            playSound("finish")
+            playSound("purr")
             player.physicsBody?.isDynamic = false
             isGameOver = true
             level += 1
@@ -235,7 +235,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func loadFinishPoint(_ position: CGPoint) {
-        let node = SKSpriteNode(imageNamed: "finish")
+        let node = SKSpriteNode(imageNamed: "mouse-toy")
         node.name = "finish"
         node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
         node.physicsBody?.isDynamic = false
