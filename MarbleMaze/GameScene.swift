@@ -44,15 +44,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var insideLabel: SKLabelNode!
     
     override func didMove(to view: SKView) {
-        let background = SKSpriteNode(imageNamed: "purple-carpet")
-        background.name = "background"
-        background.position = CGPoint(x: 512, y: 384)
-        background.blendMode = .replace
-        background.zPosition = -1
-        addChild(background)
-        
         createLabels()
-        
+        loadBackground(imageName: "purple-carpet")
         loadLevel(fileName: "level1")
         
         physicsWorld.gravity = .zero
@@ -97,31 +90,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             background.removeFromParent()
         }
         
-        if isInsideMode {
-            let background = SKSpriteNode(imageNamed: "purple-carpet")
-            background.name = "background"
-            background.position = CGPoint(x: 512, y: 384)
-            background.blendMode = .replace
-            background.zPosition = -1
-            addChild(background)
-        } else {
-            let background = SKSpriteNode(imageNamed: "grass")
-            background.name = "background"
-            background.position = CGPoint(x: 512, y: 384)
-            background.blendMode = .replace
-            background.zPosition = -1
-            addChild(background)
-        }
-        
         self.enumerateChildNodes(withName: "wall") { (node, stop) in
             node.removeFromParent()
         }
         
         score = 0
         level = 1
-        loadLevel(fileName: "level1")
         removeLabels()
         createLabels()
+        loadBackground(imageName: isInsideMode ? "purple-carpet" : "grass")
+        loadLevel(fileName: "level1")
     }
     
     func loadLevel(fileName: String) {
@@ -141,19 +119,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             for (column, letter) in line.enumerated() {
                 let position = CGPoint(x: (64 * column) + 32, y: (64 * row) + 32)
                 
-                    if letter == "x" {
-                        loadWall(position, imageName: isInsideMode ? "tan-wall" : "fence")
-                    } else if letter == "v" {
-                        loadVortex(position, imageName: isInsideMode ? "dog" : "water")
-                    } else if letter == "s" {
-                        loadStar(position, imageName: "star")
-                    } else if letter == "f" {
-                        loadFinishPoint(position, imageName: "mouse-toy")
-                    } else if letter == " " {
-                        // this is an empty space -- do nothing
-                    } else {
-                        fatalError("Unknown level letter: \(letter)")
-                    }
+                if letter == "x" {
+                    loadWall(position, imageName: isInsideMode ? "tan-wall" : "fence")
+                } else if letter == "v" {
+                    loadVortex(position, imageName: isInsideMode ? "dog" : "water")
+                } else if letter == "s" {
+                    loadStar(position, imageName: "star")
+                } else if letter == "f" {
+                    loadFinishPoint(position, imageName: "mouse-toy")
+                } else if letter == " " {
+                    // this is an empty space -- do nothing
+                } else {
+                    fatalError("Unknown level letter: \(letter)")
+                }
             }
         }
         
@@ -197,11 +175,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func playerCollided(with node: SKNode) {
         if node.name == "vortex" {
-            if isInsideMode {
-                playSound("bark")
-            } else {
-                playSound("splash")
-            }
+            isInsideMode ? playSound("bark") : playSound("splash")
             player.physicsBody?.isDynamic = false
             isGameOver = true
             score -= 1
@@ -295,6 +269,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         outsideLabel.position = CGPoint(x: 890, y: 720)
         outsideLabel.zPosition = 2
         addChild(outsideLabel)
+    }
+    
+    func loadBackground(imageName: String) {
+        let background = SKSpriteNode(imageNamed: imageName)
+        background.name = "background"
+        background.position = CGPoint(x: 512, y: 384)
+        background.blendMode = .replace
+        background.zPosition = -1
+        addChild(background)
     }
     
     func loadWall(_ position: CGPoint, imageName: String) {
