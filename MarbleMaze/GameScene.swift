@@ -141,19 +141,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             for (column, letter) in line.enumerated() {
                 let position = CGPoint(x: (64 * column) + 32, y: (64 * row) + 32)
                 
-                if letter == "x" {
-                    loadWall(position)
-                } else if letter == "v" {
-                    loadVortex(position)
-                } else if letter == "s" {
-                    loadStar(position)
-                } else if letter == "f" {
-                    loadFinishPoint(position)
-                } else if letter == " " {
-                    // this is an empty space -- do nothing
-                } else {
-                    fatalError("Unknown level letter: \(letter)")
-                }
+                    if letter == "x" {
+                        loadWall(position, imageName: isInsideMode ? "tan-wall" : "fence")
+                    } else if letter == "v" {
+                        loadVortex(position, imageName: isInsideMode ? "dog" : "water")
+                    } else if letter == "s" {
+                        loadStar(position, imageName: "star")
+                    } else if letter == "f" {
+                        loadFinishPoint(position, imageName: "mouse-toy")
+                    } else if letter == " " {
+                        // this is an empty space -- do nothing
+                    } else {
+                        fatalError("Unknown level letter: \(letter)")
+                    }
             }
         }
         
@@ -297,52 +297,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(outsideLabel)
     }
     
-    func loadWall(_ position: CGPoint) {
-        if isInsideMode {
-            let node = SKSpriteNode(imageNamed: "tan-wall")
-            node.name = "wall"
-            node.position = position
-            node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
-            node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
-            node.physicsBody?.isDynamic = false
-            addChild(node)
-        } else {
-            let node = SKSpriteNode(imageNamed: "fence")
-            node.name = "wall"
-            node.position = position
-            node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
-            node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
-            node.physicsBody?.isDynamic = false
-            addChild(node)
-        }
+    func loadWall(_ position: CGPoint, imageName: String) {
+        let node = SKSpriteNode(imageNamed: imageName)
+        node.name = "wall"
+        node.position = position
+        node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
+        node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
+        node.physicsBody?.isDynamic = false
+        addChild(node)
     }
     
-    func loadVortex(_ position: CGPoint) {
-        if isInsideMode {
-            let node = SKSpriteNode(imageNamed: "dog")
-            node.name = "vortex"
-            node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
-            node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
-            node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
-            node.physicsBody?.collisionBitMask = 0
-            node.physicsBody?.isDynamic = false
-            node.position = position
-            addChild(node)
-        } else {
-            let node = SKSpriteNode(imageNamed: "water")
-            node.name = "vortex"
-            node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
-            node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
-            node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
-            node.physicsBody?.collisionBitMask = 0
-            node.physicsBody?.isDynamic = false
-            node.position = position
-            addChild(node)
-        }
+    func loadVortex(_ position: CGPoint, imageName: String) {
+        let node = SKSpriteNode(imageNamed: imageName)
+        node.name = "vortex"
+        node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+        node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
+        node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
+        node.physicsBody?.collisionBitMask = 0
+        node.physicsBody?.isDynamic = false
+        node.position = position
+        addChild(node)
     }
     
-    func loadStar(_ position: CGPoint) {
-        let node = SKSpriteNode(imageNamed: "star")
+    func loadStar(_ position: CGPoint, imageName: String) {
+        let node = SKSpriteNode(imageNamed: imageName)
         node.name = "star"
         node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
         node.physicsBody?.isDynamic = false
@@ -353,8 +331,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(node)
     }
     
-    func loadFinishPoint(_ position: CGPoint) {
-        let node = SKSpriteNode(imageNamed: "mouse-toy")
+    func loadFinishPoint(_ position: CGPoint, imageName: String) {
+        let node = SKSpriteNode(imageNamed: imageName)
         node.name = "finish"
         node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
         node.physicsBody?.isDynamic = false
