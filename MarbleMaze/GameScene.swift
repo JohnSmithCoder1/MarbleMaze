@@ -61,8 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let touchLocation = touch.location(in: self)
         
         if let touchedNode = self.atPoint(touchLocation) as? SKLabelNode, touchedNode.name == "restart" {
-            score = 0
-            level = 1
+            resetScoreAndLevel()
             loadLevel(fileName: "level1")
         }
         
@@ -94,8 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node.removeFromParent()
         }
         
-        score = 0
-        level = 1
+        resetScoreAndLevel()
         removeLabels()
         createLabels()
         loadBackground(imageName: isInsideMode ? "purple-carpet" : "grass")
@@ -135,7 +133,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        createPlayer()
+        loadPlayer(imageName: "cat-marble")
     }
     
     func clearBoard() {
@@ -145,21 +143,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.gravity = .zero
         isGameOver = false
-    }
-    
-    func createPlayer() {
-        player = SKSpriteNode(imageNamed: "cat-marble")
-        player.position = CGPoint(x: 96, y: 672)
-        player.zPosition = 1
-        
-        player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 2)
-        player.physicsBody?.linearDamping = 0.5
-        
-        player.physicsBody?.categoryBitMask = CollisionTypes.player.rawValue
-        player.physicsBody?.contactTestBitMask = CollisionTypes.star.rawValue | CollisionTypes.vortex.rawValue | CollisionTypes.finish.rawValue
-        player.physicsBody?.collisionBitMask = CollisionTypes.wall.rawValue
-        
-        addChild(player)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -186,7 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let sequence = SKAction.sequence([move, scale, remove])
             
             player.run(sequence) { [weak self] in
-                self?.createPlayer()
+                self?.loadPlayer(imageName: "cat-marble")
                 self?.isGameOver = false
             }
         } else if node.name == "star" {
@@ -200,6 +183,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             level += 1
             loadLevel(fileName: "level\(level)")
         }
+    }
+    
+    func resetScoreAndLevel() {
+        score = 0
+        level = 1
     }
     
     func removeLabels() {
@@ -269,6 +257,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         outsideLabel.position = CGPoint(x: 890, y: 720)
         outsideLabel.zPosition = 2
         addChild(outsideLabel)
+    }
+    
+    func loadPlayer(imageName: String) {
+        player = SKSpriteNode(imageNamed: imageName)
+        player.position = CGPoint(x: 96, y: 672)
+        player.zPosition = 1
+        
+        player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 2)
+        player.physicsBody?.linearDamping = 0.5
+        
+        player.physicsBody?.categoryBitMask = CollisionTypes.player.rawValue
+        player.physicsBody?.contactTestBitMask = CollisionTypes.star.rawValue | CollisionTypes.vortex.rawValue | CollisionTypes.finish.rawValue
+        player.physicsBody?.collisionBitMask = CollisionTypes.wall.rawValue
+        
+        addChild(player)
     }
     
     func loadBackground(imageName: String) {
